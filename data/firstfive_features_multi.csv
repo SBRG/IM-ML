@@ -1,0 +1,14 @@
+,CHIP score,CHIP shape,IM score,IM shape
+DhaR/Mlc,1,0,0,0
+GntR/TyrR,1,0,0,0
+Cbl+CysB,0.5,0.5,0,0
+Copper(CusR/HprR/CueR),1,0.333333333,0,0
+Zinc(ZntR/Zur),1,0.5,0,0
+GadWX,0,0.5,0,0
+AllR/AraC/FucR,1,0,1,1
+ExuR/FucR,0,1,1,1
+FadR/IclR,0.5,0,1,1
+NtrC/RpoN,0.5,0.5,1,1
+Pyruvate(BtsR/PyrR/PdhR),0,0.333333333,1,1
+GadEWX,0.333333333,0.333333333,0,1
+NagC/TyrR,0.5,0.5,0,1

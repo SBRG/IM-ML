@@ -1,0 +1,35 @@
+,CHIP score,CHIP shape,IM score,IM shape
+ArgR,1,0,0,0
+Crp-2,1,0,0,0
+FliA (sigma 28),1,0,0,0
+OxyR,1,0,0,0
+RpoH (sigma 32),1,0,0,0
+YiaJ (PlaR),1,0,0,0
+AtoC,1,1,0,0
+Fur-2,1,1,0,0
+GlpR,1,1,0,0
+MalT,1,1,0,0
+MetJ,1,1,0,0
+NarL,1,1,0,0
+PurR-1,1,1,0,0
+PuuR,1,1,0,0
+XylR,1,1,0,0
+ArcA-1,0,0,1,1
+ArcA-2,1,0,1,1
+CpxR,1,0,1,1
+Cra,0,0,1,1
+Crp-1,0,0,1,1
+CysB,1,1,1,1
+FlhDC,0,1,1,1
+Fnr,0,0,1,1
+Fur-1,1,0,1,1
+Lrp,0,0,1,1
+Nac,1,0,1,1
+PrpR,1,1,1,1
+RpoS (sigma 38),0,0,1,1
+CdaR,0,0,0,1
+EvgA,1,1,0,1
+FecI (sigma 19),1,0,0,1
+RbsR,1,1,0,1
+RcsAB,1,1,0,1
+SoxS,0,0,0,0
