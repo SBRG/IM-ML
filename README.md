@@ -4,7 +4,7 @@ A machine learning workflow to predict I-Modulons( top-down regulons derived fro
 To learn about I-Modulons, how they are computed, and what they can tell you, please visit https://imodulondb.org/about.html
 ## Workflow outline
 1. Generate SigmaFactor PSSMs<br>
-2. Feature Matrix Generation<br>
+2. Feature Matrix Generation (This generates a ~300MB file necessary for machine learning)<br>
 3. Feature Engineering<br>
 4. Machine learing: model training and hyperparameter optimization<br>
 5. ArcA Direct Repeats motifs to improve model performance<br>
