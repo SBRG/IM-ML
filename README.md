@@ -1,5 +1,5 @@
 # IM-ML
-A machine learning workflow to predict I-Modulons( top-down regulons derived from the ICA result of RNAseq data) with DNA sequence features.<br>
+A machine learning workflow to predict gene regulon membership based on promoter sequence features, focusing on top-down regulons derived from an ICA analysis of an E. coli RNAseq database .<br>
 ## What is I-Modulon ?
 To learn about I-Modulons, how they are computed, and what they can tell you, please visit https://imodulondb.org/about.html
 ## Workflow outline
