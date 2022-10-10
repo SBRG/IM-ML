@@ -1,7 +1,7 @@
 # IM-ML
-A machine learning workflow to predict gene regulon membership based on promoter sequence features, focusing on top-down regulons derived from an ICA analysis of an E. coli RNAseq database .<br>
-## What is I-Modulon ?
-To learn about I-Modulons, how they are computed, and what they can tell you, please visit https://imodulondb.org/about.html
+A machine learning workflow to predict gene regulon membership based on promoter sequence features, focusing on top-down regulons derived from an Independent Component Analysis (ICA) of the PRECISE E. coli RNAseq database.<br>
+## What is Independent Component Analysis?
+To learn about ICA, how ICA components are computed, and what they can tell you, please visit https://imodulondb.org/about.html
 ## Workflow outline
 1. Generate SigmaFactor PSSMs<br>
 2. Feature Matrix Generation (This generates a ~200MB file necessary for machine learning)<br>
