@@ -117,14 +117,23 @@ def rlogodds(fname):
     return logodds
 
 
-def get_shape( start, end, shape_table ):
+def get_shape( start, end, shape_table, bitome_obj):
+    
     '''
     shape table should imported.
     '''
-    start = start -3
-    end = end -2
-    result = shape_table.iloc[start:end,:]
-    return result
+        
+    # add the +/- 2 padding to ensure that we return shape as requested
+    seq_for_shape = bitome_obj.sequence[start - 2-1 :end + 3 -1]
+    seq_fivemers = [str(seq_for_shape[i:i+5]) for i in range(len(seq_for_shape) - 5 + 1)]
+    shape_df = shape_table.loc[seq_fivemers]
+        
+    # change the index of the raw shape DF to reflect the absolute positions given initially
+    pos_index = list(range(start, end + 1))
+
+    shape_df.index = pos_index
+    
+    return shape_df
 
 
 def multi_gaussian(x,mean,sigma):

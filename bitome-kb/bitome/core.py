@@ -265,20 +265,34 @@ class Bitome:
 
         # convert the provided location into a start, end tuple
         if isinstance(location, tuple):
-            loc_start, loc_end = location
+            left, right = location
         elif isinstance(location, FeatureLocation):
-            loc_start, loc_end = location.start.position + 1, location.end.position
+            left, right = location.start.position + 1, location.end.position
         else:
             raise TypeError('Provided location is neither a raw tuple nor a FeatureLocation object')
 
         # load the full shape datasets; helper function uses cached DF if this function already called
         full_shape_df = self._load_shape_data()
-        loc_shape_df = full_shape_df.loc[loc_start:loc_end, :]
+        
+        # add the +/- 2 padding to ensure that we return shape as requested
+        # This part is modified to use the 5mer table
+        seq_for_shape = self.sequence[left - 2-1 :right + 3 -1]
+        seq_fivemers = [str(seq_for_shape[i:i+5]) for i in range(len(seq_for_shape) - 5 + 1)]
+        shape_df = full_shape_df.loc[seq_fivemers]
 
-        return loc_shape_df
+        # change the index of the raw shape DF to reflect the absolute positions given initially
+        pos_index = list(range(left, right + 1))
+        
+#         if strand == -1:
+#             pos_index = pos_index[::-1]
+
+        shape_df.index = pos_index
+        
+        return shape_df
 
     # [TO-DO] Using table based shape
     def _load_shape_data(self):
+        
         """
         Helper function to load shape data; loads HDF records from file, and caches the result in a single large DF
         :return:
@@ -477,7 +491,7 @@ class Bitome:
                  signame+'_Matched_m35':m35_string, signame+'_m35_Start':mbox,
                   signame+'_m35_score':m35_max_score, signame+'_m35_hmd':m35_hmin,
                   signame+'_Spacer_Length': spacer_length, signame+'_Spacer_AT_ratio':AT_ratio,
-                 signame+'_hepta_ratio':hepta_ratio}
+                 signame+'_hepta_ratio':hepta_ratio, signame+'_combined_score': prib_max_score+m35_max_score}
         
         return result
     
@@ -534,6 +548,7 @@ class Bitome:
         if flag:
             start = index + left
             end = start + motif_len - 1 #inclusive
+            
         else:
             end = right - index
             start = end - motif_len + 1 #inclusive
@@ -598,7 +613,8 @@ class Bitome:
                   name+' Opening_avg': mean(opening),name+' Opening_range': max(opening)-min(opening),
                   name+' EP_avg': mean(ep),name+' EP_range': max(ep) - min(ep),
                  name+' Opening_max': max(opening),name+' Opening_min': min(opening),
-                  name+' EP_max': max(ep), name+' EP_min': min(ep)}
+                  name+' EP_max': max(ep), name+' EP_min': min(ep), 
+                 name+' start': start, name+' end': end }
         
         if find_peak:
             for shape_name in ['HelT','Roll','Shift','Slide','Rise','TilT','Buckle','Shear','Stretch',
