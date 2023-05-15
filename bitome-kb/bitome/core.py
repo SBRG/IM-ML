@@ -533,7 +533,21 @@ class Bitome:
             right = TSS+150
             s = complement(revstrand( str(self.sequence)[left:right] ))
             
-        
+        # calculate shape based on 5mers table
+        def get_shape(start, end, shape_table, bitome_obj):
+
+            # add the +/- 2 padding to ensure that we return shape as requested
+            seq_for_shape = bitome_obj.sequence[start - 2-1 :end + 3 -1]
+            seq_fivemers = [str(seq_for_shape[i:i+5]) for i in range(len(seq_for_shape) - 5 + 1)]
+            shape_df = shape_table.loc[seq_fivemers]
+
+            # change the index of the raw shape DF to reflect the absolute positions given initially
+            pos_index = list(range(start, end + 1))
+
+            shape_df.index = pos_index
+
+            return shape_df
+
         scores = []
         for i in range(0, len(s)+1 - motif_len ):
             scores.append( score_motif(s[i:i+motif_len], M) )
@@ -564,7 +578,8 @@ class Bitome:
             else:
                 up = 0
         
-        table = self.get_shape( (start,end) )
+        table = get_shape(start, end, shape_table, self)
+#         table = self.get_shape( (start,end) )
         helt =  list(table['HelT'])
         roll =  list(table['Roll'])
         mgw = list(table['MGW'])
@@ -572,7 +587,7 @@ class Bitome:
         shift =  list(table['Shift'])
         slide =  list(table['Slide'])
         rise = list(table['Rise'])
-        tilt=  list(table['TilT'])
+        tilt=  list(table['Tilt'])
         buckle =  list(table['Buckle'])
         shear =  list(table['Shear'])
         stretch = list(table['Stretch'])
@@ -617,7 +632,7 @@ class Bitome:
                  name+' start': start, name+' end': end }
         
         if find_peak:
-            for shape_name in ['HelT','Roll','Shift','Slide','Rise','TilT','Buckle','Shear','Stretch',
+            for shape_name in ['HelT','Roll','Shift','Slide','Rise','Tilt','Buckle','Shear','Stretch',
                                'Stagger','Opening','MGW','ProT','EP']:
                 temp_shape = list(table[ shape_name ])
                 avg_width,num_peaks,avg_dist = avg_peakwidth( temp_shape )
