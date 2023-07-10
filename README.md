@@ -10,16 +10,16 @@ To learn about ICA, how ICA components are computed, and what they can tell you,
 5. ArcA Direct Repeats motifs to improve model performance<br>
 ## Dependencies
 The workflow depends on:<br>
-        1. bitome: https://github.com/SBRG/bitome<br>
-        2. pymodulon: https://github.com/SBRG/pymodulon<br>
-        3. DNAshapeR:https://github.com/TsuPeiChiu/DNAshapeR<br>
-        4. scikit-learn: https://scikit-learn.org/stable/ <br>
-        5. seaborn statistical data visualization:https://seaborn.pydata.org/index.html<br>
+1. bitome: https://github.com/SBRG/bitome<br>
+2. pymodulon: https://github.com/SBRG/pymodulon<br>
+3. DNAshapeR:https://github.com/TsuPeiChiu/DNAshapeR<br>
+4. scikit-learn: https://scikit-learn.org/stable/ <br>
+5. seaborn statistical data visualization:https://seaborn.pydata.org/index.html<br>
         
 Recommended package versions are:<br>
-Python==3.8<br>
-seaborn==0.12.2<br>
-numpy==1.24.3<br>
-matplotlib==3.7.1<br>
+  Python==3.8<br>
+  seaborn==0.12.2<br>
+  numpy==1.24.3<br>
+  matplotlib==3.7.1<br>
  ## Citation
 Qiu, S., Lamoureux, C., Akbari, A., Palsson, B. O., &amp; Zielinski, D. C. (2022). Quantitative sequence basis for the E. coli transcriptional regulatory network. https://doi.org/10.1101/2022.02.20.481200
