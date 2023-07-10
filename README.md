@@ -21,5 +21,7 @@ Recommended package versions are:<br>
   seaborn==0.12.2<br>
   numpy==1.24.3<br>
   matplotlib==3.7.1<br>
+  pandas==1.5.3<br>
+  
  ## Citation
 Qiu, S., Lamoureux, C., Akbari, A., Palsson, B. O., &amp; Zielinski, D. C. (2022). Quantitative sequence basis for the E. coli transcriptional regulatory network. https://doi.org/10.1101/2022.02.20.481200
