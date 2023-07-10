@@ -497,7 +497,7 @@ class Bitome:
     
     # [Modified] Added updated shape features.
     #Sizhe Qiu
-    def motif_match(self, pwm:dict,  tu,  name:str, isIM: bool, find_peak:bool )->dict:
+    def motif_match(self, pwm:dict,  tu,  name:str, isIM: bool, find_peak:bool, shape_table)->dict:
         #M is the log odds matrix for the motif.
         """
         Return log odds score of matched motif, and whether it locates upstream to TSS, range is -100 to +50.
